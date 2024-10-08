@@ -12,8 +12,8 @@ const getAccountsFunctionProps: SSRFunctionProps = {
 };
 
 const accountsServiceProps: SSRApiGatewayProps = {
+    resourceName: 'VisionAccountsService',
     gatewayName: 'VisionAccountsAPI',
-    gatewayArgs: {},
 };
 
 const accountsService: ApiGatewayV1 = ssrApiGateway(accountsServiceProps);

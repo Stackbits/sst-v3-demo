@@ -1,6 +1,7 @@
 import { ssrTable, SSRTableProps } from '../constructs/table.construct';
 
 const accountsTableProps: SSRTableProps = {
+    resourceName: 'AccountsDynamoDB',
     tableName: 'account',
     dynamoArgs: {
         fields: {
