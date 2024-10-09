@@ -1,8 +1,0 @@
-{
-    "extends": "@tsconfig/node20/tsconfig.json",
-    "compilerOptions": {
-        "module": "ESNext",
-        "lib": ["ES2015", "DOM"],
-        "moduleResolution": "Bundler"
-    }
-}

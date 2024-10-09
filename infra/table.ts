@@ -1,9 +1,8 @@
-import { ssrTable, SSRTableProps } from '../constructs/table.construct';
+import { ssrTable, SSRTableProps } from './constructs/table.construct';
 
 const accountsTableProps: SSRTableProps = {
-    resourceName: 'AccountsDynamoDB',
-    tableName: 'account',
-    dynamoArgs: {
+    sstResourceName: 'VisionAccountTable',
+    args: {
         fields: {
             id: 'string',
             name: 'string',
@@ -20,4 +19,4 @@ const accountsTableProps: SSRTableProps = {
     },
 };
 
-export const accountsTable = ssrTable(accountsTableProps);
+export const accountsTable = ssrTable('account', accountsTableProps);

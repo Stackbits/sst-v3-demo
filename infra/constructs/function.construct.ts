@@ -1,16 +1,33 @@
-import { FunctionArgs } from '../../.sst/platform/src/components/aws';
+import { Function, FunctionArgs } from '../../.sst/platform/src/components/aws';
+import { DEFAULT_FUNCTION_CONFIG } from '../utils/constants/default-resource-config.constant';
+
+import { constructName } from '../utils/construct-name.util';
 
 export type SSRFunctionProps = {
-    functionName: string;
-    functionArgs: FunctionArgs;
+    sstResourceName: string;
+    args: Omit<FunctionArgs, 'dev' | 'live' | 'injections' | 'url' | 'name' | 'transform'>;
 };
 
-export const ssrFunction = (props: SSRFunctionProps) => {
-    const { functionName, functionArgs }: { functionName: string; functionArgs: FunctionArgs } = props;
-    return new sst.aws.Function(functionName, {
-        memory: '128 MB',
-        runtime: 'nodejs20.x',
-        timeout: '30 seconds',
-        ...functionArgs,
+/**
+ * `SSR Function Construct`
+ *
+ * ``This reusable construct creates an AWS Lambda with a default configuration, which can be overridden.``
+ * ```
+ * Default configuration:
+ * - memory: 128 MB
+ * - runtime: nodejs20.x
+ * - timeout: 30 seconds
+ * ```
+ *
+ * @param name - This is the name of the Lambda resource in AWS.
+ * @param props - This is a set of properties used to configure the AWS Lambda.
+ * @returns An instance of AWS Lambda.
+ */
+export const ssrFunction = (name: string, props: SSRFunctionProps): Function => {
+    const { sstResourceName, args } = props;
+    return new Function(sstResourceName, {
+        name: constructName(name),
+        ...DEFAULT_FUNCTION_CONFIG,
+        ...args,
     });
 };

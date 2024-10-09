@@ -22,7 +22,7 @@ export default $config({
         };
     },
     async run() {
-        const accountsService = await import('./infra/stacks/accounts-service.stack');
+        const accountsService = await import('./infra/api');
 
         return {
             ...accountsService,

@@ -3,9 +3,6 @@
     "version": "1.0.0",
     "description": "This is POC project using SST v3",
     "main": "index.js",
-    "workspaces": [
-        "packages/*"
-    ],
     "scripts": {
         "dev": "sst dev",
         "build": "sst build",
@@ -16,7 +13,10 @@
     "author": "Siddharth Kar <siddharth.kar@outlook.com>",
     "license": "MIT",
     "devDependencies": {
+        "@pulumi/aws": "^6.55.0",
         "@tsconfig/node20": "^20.1.4",
+        "@types/aws-lambda": "^8.10.137",
+        "aws-sdk": "^2.1691.0",
         "sst": "^3.1.67",
         "typescript": "^5.6.2"
     }

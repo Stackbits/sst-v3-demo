@@ -5,7 +5,7 @@ import "sst"
 export {}
 declare module "sst" {
   export interface Resource {
-    "AccountsDynamoDB": {
+    "VisionAccountTable": {
       "name": string
       "type": "sst.aws.Dynamo"
     }
