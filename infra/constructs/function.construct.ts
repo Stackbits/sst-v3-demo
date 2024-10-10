@@ -1,5 +1,5 @@
 import { Function, FunctionArgs } from '../../.sst/platform/src/components/aws';
-import { DEFAULT_FUNCTION_CONFIG } from '../utils/constants/default-resource-config.constant';
+import { DEFAULT_FUNCTION_CONFIG } from '../utils/constants/default-function-config.constant';
 
 import { constructName } from '../utils/construct-name.util';
 

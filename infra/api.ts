@@ -7,7 +7,7 @@ const getAccountsRoutes: SSRApiGatewayRoute = {
     routePath: 'GET /accounts',
     functionName: 'GetAccountsFunction',
     functionArgs: {
-        handler: 'src/handlers/get-all-accounts.handler',
+        handler: 'src/handlers/get-all-accounts/index.handler',
         link: [accountsTable],
     },
 };

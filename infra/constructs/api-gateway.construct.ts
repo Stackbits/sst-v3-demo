@@ -1,11 +1,11 @@
 import { ApiGatewayV1, ApiGatewayV1Args, FunctionArgs } from '../../.sst/platform/src/components/aws';
-import { DEFAULT_FUNCTION_CONFIG } from '../utils/constants/default-resource-config.constant';
+import { DEFAULT_FUNCTION_CONFIG } from '../utils/constants/default-function-config.constant';
 import { constructName } from '../utils/construct-name.util';
 
 export type SSRApiGatewayRoute = {
     routePath: string;
     functionName: string;
-    functionArgs: Omit<FunctionArgs, 'dev' | 'live' | 'injections' | 'url' | 'name' | 'transform'>;
+    functionArgs: Omit<FunctionArgs, 'dev' | 'live' | 'injections' | 'url' | 'name' | 'transform' | 'nodejs'>;
 };
 
 export type SSRApiGatewayV1Props = {
@@ -24,6 +24,13 @@ export type SSRApiGatewayV1Props = {
  * - memory: 128 MB
  * - runtime: nodejs20.x
  * - timeout: 30 seconds
+ * - nodejs: { // can't be overridden as of now
+        splitting: true,
+        format: 'esm',
+        esbuild: {
+            treeShaking: true,
+        }
+     }
  * ```
  *
  * @param name - This is the name of the Rest API ApiGateway resource in AWS.
