@@ -9,9 +9,10 @@ phases:
   pre_build:
     commands:
       - echo "Creating adding stage $ENVIRONMENT"
-      - mkdir .sst
-      - echo "$ENVIRONMENT" > .sst/stage
-      - cat .sst/stage
+      # - mkdir .sst
+      # - echo "$ENVIRONMENT" > .sst/stage
+      # - cat .sst/stage
+      - export SST_STAGE=$ENVIRONMENT
 
   build:
     commands:
