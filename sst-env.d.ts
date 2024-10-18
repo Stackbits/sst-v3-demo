@@ -5,13 +5,5 @@ import "sst"
 export {}
 declare module "sst" {
   export interface Resource {
-    "VisionAccountTable": {
-      "name": string
-      "type": "sst.aws.Dynamo"
-    }
-    "VisionAccountsService": {
-      "type": "sst.aws.ApiGatewayV1"
-      "url": string
-    }
   }
 }
