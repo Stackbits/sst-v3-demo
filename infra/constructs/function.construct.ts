@@ -1,11 +1,10 @@
-import { Function, FunctionArgs } from '../../.sst/platform/src/components/aws';
 import { DEFAULT_FUNCTION_CONFIG } from '../utils/constants/default-function-config.constant';
 
 import { constructName } from '../utils/construct-name.util';
 
 export type SSRFunctionProps = {
     sstResourceName: string;
-    args: Omit<FunctionArgs, 'dev' | 'live' | 'injections' | 'url' | 'name' | 'transform'>;
+    args: Omit<sst.aws.FunctionArgs, 'dev' | 'live' | 'injections' | 'url' | 'name' | 'transform'>;
 };
 
 /**
@@ -23,9 +22,9 @@ export type SSRFunctionProps = {
  * @param props - This is a set of properties used to configure the AWS Lambda.
  * @returns An instance of AWS Lambda.
  */
-export const ssrFunction = (name: string, props: SSRFunctionProps): Function => {
+export const ssrFunction = (name: string, props: SSRFunctionProps): sst.aws.Function => {
     const { sstResourceName, args } = props;
-    return new Function(sstResourceName, {
+    return new sst.aws.Function(sstResourceName, {
         name: constructName(name),
         ...DEFAULT_FUNCTION_CONFIG,
         ...args,

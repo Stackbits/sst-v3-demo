@@ -1,17 +1,16 @@
-import { ApiGatewayV1, ApiGatewayV1Args, FunctionArgs } from '../../.sst/platform/src/components/aws';
 import { DEFAULT_FUNCTION_CONFIG } from '../utils/constants/default-function-config.constant';
 import { constructName } from '../utils/construct-name.util';
 
 export type SSRApiGatewayRoute = {
     routePath: string;
     functionName: string;
-    functionArgs: Omit<FunctionArgs, 'dev' | 'live' | 'injections' | 'url' | 'name' | 'transform' | 'nodejs'>;
+    functionArgs: Omit<sst.aws.FunctionArgs, 'dev' | 'live' | 'injections' | 'url' | 'name' | 'transform' | 'nodejs'>;
 };
 
 export type SSRApiGatewayV1Props = {
     sstResourceName: string;
     routes: SSRApiGatewayRoute[];
-    args?: Omit<ApiGatewayV1Args, 'transform'>;
+    args?: Omit<sst.aws.ApiGatewayV1Args, 'transform'>;
     // TODO: add authorizer args and api key args
 };
 
@@ -37,9 +36,9 @@ export type SSRApiGatewayV1Props = {
  * @param props - This is a set of properties used to configure the AWS Rest Api ApiGatewayV1.
  * @returns An instance of AWS Rest Api Gateway, with configures routes.
  */
-export const ssrApiGatewayV1 = (name: string, props: SSRApiGatewayV1Props): ApiGatewayV1 => {
+export const ssrApiGatewayV1 = (name: string, props: SSRApiGatewayV1Props): sst.aws.ApiGatewayV1 => {
     const { sstResourceName, args, routes } = props;
-    const apiGateway: ApiGatewayV1 = new ApiGatewayV1(sstResourceName, {
+    const apiGateway: sst.aws.ApiGatewayV1 = new sst.aws.ApiGatewayV1(sstResourceName, {
         ...(args || {}),
         transform: {
             api: {

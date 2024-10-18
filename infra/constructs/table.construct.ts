@@ -1,5 +1,4 @@
 import { dynamodb } from '@pulumi/aws';
-import { Dynamo, DynamoArgs } from '../../.sst/platform/src/components/aws/dynamo';
 import { constructName } from '../utils/construct-name.util';
 
 type TableTransformArgs = Pick<
@@ -9,7 +8,7 @@ type TableTransformArgs = Pick<
 
 export type SSRTableProps = {
     sstResourceName: string;
-    args: Omit<DynamoArgs, 'transform'> & TableTransformArgs;
+    args: Omit<sst.aws.DynamoArgs, 'transform'> & TableTransformArgs;
 };
 
 /**
@@ -25,7 +24,7 @@ export type SSRTableProps = {
  * @param props - This is a set of properties used to configure the AWS DynamoDB Table.
  * @returns An instance of AWS DynamoDB table.
  */
-export const ssrTable = (name: string, props: SSRTableProps): Dynamo => {
+export const ssrTable = (name: string, props: SSRTableProps): sst.aws.Dynamo => {
     const {
         sstResourceName,
         args: {
@@ -42,7 +41,7 @@ export const ssrTable = (name: string, props: SSRTableProps): Dynamo => {
         },
     } = props;
 
-    return new Dynamo(sstResourceName, {
+    return new sst.aws.Dynamo(sstResourceName, {
         fields,
         primaryIndex,
         globalIndexes,
