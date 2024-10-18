@@ -20,7 +20,7 @@ const accountsServiceProps: SSRApiGatewayV1Props = {
     routes,
 };
 
-const accountsService: ApiGatewayV1 = ssrApiGatewayV1('VisionAccountsAPI', accountsServiceProps);
+const accountsService: sst.aws.ApiGatewayV1 = ssrApiGatewayV1('VisionAccountsAPI', accountsServiceProps);
 
 // Deploy API Gateway to Stage
 accountsService.deploy();
