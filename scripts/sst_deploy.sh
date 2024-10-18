@@ -1,9 +1,10 @@
 #!/bin/bash
 echo "deploying applciation"
-
-pwd
-echo "SST_STAGE = $SST_STAGE"
-
+ls
+npm install
+export SST_STAGE=sst-dev
 npx sst deploy
-
+if [ "$CODEBUILD_BUILD_SUCCEEDING" == "0" ]; then
+    cat .sst/log/sst.log
+fi
 exit 0

@@ -5,8 +5,6 @@ echo "Installing application dependencies..."
 # sudo apt-get update
 # sudo apt-get install -y nodejs npm
 
-pwd
 
-npm install
 
 exit 0
