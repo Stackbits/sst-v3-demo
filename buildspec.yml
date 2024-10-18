@@ -6,10 +6,17 @@ phases:
       - echo "Installing dependencies..."
       - npm install  # Example for Node.js project
 
+  pre_build:
+    commands:
+      - echo "Creating adding stage $ENVIRONMENT"
+      - mkdir .sst
+      - echo "$ENVIRONMENT" > .sst/stage   # Create the file and add the stage
+      - cat .sst/stage
+
   build:
     commands:
       - echo "Starting build process..."
-      - npx sst diff --stage sst-dev
+      - npx sst diff --stage $ENVIRONMENT
     on-failure: ABORT  # This will abort the build process on failure and trigger the post_build phase
 
   post_build:
