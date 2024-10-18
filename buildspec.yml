@@ -16,5 +16,8 @@ phases:
     commands:
       - echo "Post-build steps running..."
       - echo "Checking if build failed and uploading logs if needed..."
-      - if [ "$CODEBUILD_BUILD_SUCCEEDING" == "0" ]; then cat .sst/log/sst.log
-
+      - |
+        if [ "$CODEBUILD_BUILD_SUCCEEDING" == "0" ]; then
+          cat .sst/log/sst.log
+        fi
+      - echo "Post-build phase complete."
