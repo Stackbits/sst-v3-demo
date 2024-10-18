@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Installing dependencies..."
+      - npm install  # Example for Node.js project
+
+  build:
+    commands:
+      - echo "Starting build process..."
+      - npx sst diff --stage sst-dev
+    on-failure: ABORT  # This will abort the build process on failure and trigger the post_build phase
+
+  post_build:
+    commands:
+      - echo "Post-build steps running..."
+      - echo "Checking if build failed and uploading logs if needed..."
+      - if [ "$CODEBUILD_BUILD_SUCCEEDING" == "0" ]; then cat .sst/log/sst.log
+
