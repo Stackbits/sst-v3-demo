@@ -1,7 +1,13 @@
-import { APIGatewayProxyEvent, APIGatewayProxyHandler, APIGatewayProxyResult } from 'aws-lambda';
+import {
+    APIGatewayProxyEvent,
+    APIGatewayProxyHandler,
+    APIGatewayProxyResult,
+} from 'aws-lambda';
 import { getAllAccounts } from '../../integrations/dynamodb/clients/get-all-accounts.client';
 
-export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+export const handler: APIGatewayProxyHandler = async (
+    _event: APIGatewayProxyEvent,
+): Promise<APIGatewayProxyResult> => {
     try {
         const accounts = await getAllAccounts();
         return {

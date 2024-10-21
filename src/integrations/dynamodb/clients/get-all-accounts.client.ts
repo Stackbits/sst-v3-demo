@@ -20,9 +20,11 @@ export const getAllAccounts = async (): Promise<Account[]> => {
     };
 
     try {
-        const result: DocumentClient.ScanOutput = await dynamoDBClient.scan(params).promise();
+        const result: DocumentClient.ScanOutput = await dynamoDBClient
+            .scan(params)
+            .promise();
         return (result.Items as Account[]) || [];
-    } catch (error) {
+    } catch (_error) {
         throw new Error('Could not retrieve accounts.');
     }
 };
