@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Checking code quality..."
+echo "Checking code quality from new-branch"
 ls
 
 npm install

@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "deploying applciation"
+echo "deploying applciation from new-branch"
 ls
 npm install
 export SST_STAGE=sst-dev
