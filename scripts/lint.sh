@@ -1,10 +1,9 @@
 #!/bin/bash
-echo "Installing application dependencies..."
+echo "Checking code quality..."
+ls
 
-# Example command to install a package (requires sudo)
-# sudo apt-get update
-# sudo apt-get install -y nodejs npm
+npm install
 
-
+npm run lint
 
 exit 0
