@@ -1,9 +1,14 @@
 #!/bin/bash
-echo "deploying application PR"
+echo "Deploying Application"
+
+echo "Environment: $ENVIRONMENT"
+
 ls
+
 npm install
-export SST_STAGE=sst-dev
+
+export SST_STAGE=$ENVIRONMENT
+
 npx sst deploy --print-logs
-cat .sst/log/sst.log
 
 exit 0
