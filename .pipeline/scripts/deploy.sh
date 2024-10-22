@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "deploying applciation PR"
+echo "deploying application PR"
 ls
 npm install
 export SST_STAGE=sst-dev
