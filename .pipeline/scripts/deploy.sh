@@ -5,10 +5,14 @@ echo "Environment: $ENVIRONMENT"
 
 ls
 
+printenv
+
 npm install
 
 export SST_STAGE=$ENVIRONMENT
 
-npx sst deploy --print-logs
+echo "SST Stage = $SST_STAGE"
+
+# npx sst deploy --print-logs
 
 exit 0
