@@ -6,7 +6,7 @@ echo "Environment: $ENVIRONMENT"
 # Get the branch name from the source artifact
 # Fetch the execution ID of the pipeline
 # Get the branch name from the CodePipeline variable
-BRANCH_NAME=$(aws codepipeline get-pipeline-state --name your-pipeline-name --query 'stageStates[].actions[].inputArtifacts[].revision' --output text)
+BRANCH_NAME=$(aws codepipeline get-pipeline-state --name SSTV3DemoPipeline --query 'stageStates[].actions[].inputArtifacts[].revision' --output text)
 
 # Print the branch name
 echo "$BRANCH_NAME"
