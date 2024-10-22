@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "Deploying Application"
 
-echo "Environment: $ENVIRONMENT"
+echo "Environment: $ENVIRONMENT, CODEBUILD_WEBHOOK_HEAD_REF: ${CODEBUILD_WEBHOOK_HEAD_REF}"
 
 ls
 
