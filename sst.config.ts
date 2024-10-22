@@ -23,10 +23,11 @@ export default $config({
         };
     },
     async run() {
-        const accountsService = await import('./infra/api');
+        // const accountsService = await import('./infra/api');
 
-        return {
-            ...accountsService,
-        };
+        // return {
+        //     ...accountsService,
+        // };
+        await import('./infra/cognito');
     },
 });
