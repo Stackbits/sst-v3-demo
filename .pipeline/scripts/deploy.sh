@@ -5,12 +5,13 @@ echo "Environment: $ENVIRONMENT"
 
 # Get the branch name from the source artifact
 # Fetch the execution ID of the pipeline
-PIPELINE_EXECUTION=$(aws codepipeline get-pipeline-execution --pipeline-name SSTV3DemoPipeline --pipeline-execution-id $CODEBUILD_RESOLVED_SOURCE_VERSION)
+# Get the branch name from the CodePipeline variable
+BRANCH_NAME=$(aws codepipeline get-pipeline-state --name your-pipeline-name --query 'stageStates[].actions[].inputArtifacts[].revision' --output text)
 
-# Extract the branch name from the source revision
-BRANCH_NAME=$(echo $PIPELINE_EXECUTION | jq -r '.pipelineExecution.sourceRevisions[0].revision')
+# Print the branch name
+echo "$BRANCH_NAME"
 
-echo " BRANCH_NAME >>> $BRANCH_NAME || PIPELINE_EXECUTION >>> $PIPELINE_EXECUTION"
+echo " BRANCH_NAME >>> $BRANCH_NAME "
 
 # Check if the branch is 'main' (or any branch you want)
 if [[ $BRANCH_NAME == 'refs/heads/main' ]]; then
