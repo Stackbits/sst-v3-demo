@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Checking code quality PR..."
+echo "Checking code quality..."
 
 echo "Environment: $ENVIRONMENT"
 

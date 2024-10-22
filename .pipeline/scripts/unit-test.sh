@@ -1,12 +1,10 @@
 #!/bin/bash
-echo "Setting up variables"
+echo "Running Unit Tests"
 
-# Example command to install a package (requires sudo)
-# sudo apt-get update
-# sudo apt-get install -y nodejs npm
+echo "Environment: $ENVIRONMENT"
 
-pwd
-echo "STAGE = $STAGE"
-export SST_STAGE=$STAGE
+ls
+
+npm install
 
 exit 0
