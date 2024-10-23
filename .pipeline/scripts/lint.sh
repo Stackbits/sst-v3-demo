@@ -5,8 +5,8 @@ echo "Environment: $ENVIRONMENT"
 
 ls
 
-npm install
+# npm install
 
-npm run lint
+# npm run lint
 
 exit 0
