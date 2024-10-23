@@ -1,21 +1,16 @@
-import {
-    CognitoUserPool,
-    CognitoUserPoolArgs,
-} from '../../.sst/platform/src/components/aws';
-
 import { constructName } from '../utils/construct-name.util';
 
 export type SSRCognitoUserPoolProps = {
     sstResourceName: string;
-    args: Omit<CognitoUserPoolArgs, 'usernames' | 'transform'>;
+    args: Omit<sst.aws.CognitoUserPoolArgs, 'usernames' | 'transform'>;
 };
 
 export const ssrCognitoUserPool = (
     name: string,
     props: SSRCognitoUserPoolProps,
-): CognitoUserPool => {
+): sst.aws.CognitoUserPool => {
     const { sstResourceName, args } = props;
-    const cognitoUserPool: CognitoUserPool = new CognitoUserPool(
+    const cognitoUserPool: sst.aws.CognitoUserPool = new sst.aws.CognitoUserPool(
         sstResourceName,
         {
             ...args,
