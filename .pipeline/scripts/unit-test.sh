@@ -7,4 +7,6 @@ ls
 
 npm install
 
+npm run test:coverage
+
 exit 0
