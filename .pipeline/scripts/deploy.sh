@@ -1,6 +1,7 @@
 #!/bin/bash
 echo "Deploying $APPLICATION in environment $ENVIRONMENT"
 
+
 # Install dependencies
 npm install
 
