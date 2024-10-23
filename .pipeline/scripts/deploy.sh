@@ -13,4 +13,10 @@ echo "SST Stage = $SST_STAGE"
 
 npx sst deploy --print-logs
 
+ls -lrt
+
+cd .sst/artifacts
+
+ls -lrt
+
 exit 0
