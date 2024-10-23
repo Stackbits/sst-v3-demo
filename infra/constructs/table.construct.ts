@@ -6,13 +6,13 @@ type TableTransformArgs = Pick<
     'billingMode' | 'deletionProtectionEnabled' | 'readCapacity' | 'writeCapacity'
 >;
 
-export type SSRTableProps = {
+export type CGXTableProps = {
     sstResourceName: string;
     args: Omit<sst.aws.DynamoArgs, 'transform'> & TableTransformArgs;
 };
 
 /**
- * `SSR DynamoDB Table Construct`
+ * `CGX DynamoDB Table Construct`
  *
  * ``This reusable construct creates an AWS DynamoDB table with a default configuration, which can be overridden.``
  * ```
@@ -24,7 +24,7 @@ export type SSRTableProps = {
  * @param props - This is a set of properties used to configure the AWS DynamoDB Table.
  * @returns An instance of AWS DynamoDB table.
  */
-export const ssrTable = (name: string, props: SSRTableProps): sst.aws.Dynamo => {
+export const cgxTable = (name: string, props: CGXTableProps): sst.aws.Dynamo => {
     const {
         sstResourceName,
         args: {

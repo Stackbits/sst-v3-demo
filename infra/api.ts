@@ -1,9 +1,8 @@
-import { ApiGatewayV1 } from '../.sst/platform/src/components/aws';
-import { SSRApiGatewayRoute, ssrApiGatewayV1, SSRApiGatewayV1Props } from './constructs/api-gateway.construct';
+import { CGXApiGatewayRoute, cgxApiGatewayV1, CGXApiGatewayV1Props } from './constructs/api-gateway.construct';
 import { accountsTable } from './table';
 
 // API Gateway Routes Configuration.
-const getAccountsRoutes: SSRApiGatewayRoute = {
+const getAccountsRoutes: CGXApiGatewayRoute = {
     routePath: 'GET /accounts',
     functionName: 'GetAccountsFunction',
     functionArgs: {
@@ -12,15 +11,15 @@ const getAccountsRoutes: SSRApiGatewayRoute = {
     },
 };
 
-const routes: SSRApiGatewayRoute[] = [getAccountsRoutes];
+const routes: CGXApiGatewayRoute[] = [getAccountsRoutes];
 
 // API Gateway V1 with routes Configuration
-const accountsServiceProps: SSRApiGatewayV1Props = {
+const accountsServiceProps: CGXApiGatewayV1Props = {
     sstResourceName: 'VisionAccountsService',
     routes,
 };
 
-const accountsService: sst.aws.ApiGatewayV1 = ssrApiGatewayV1('VisionAccountsAPI', accountsServiceProps);
+const accountsService: sst.aws.ApiGatewayV1 = cgxApiGatewayV1('VisionAccountsAPI', accountsServiceProps);
 
 // Deploy API Gateway to Stage
 accountsService.deploy();

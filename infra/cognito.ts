@@ -1,6 +1,6 @@
-import { ssrCognitoUserPool } from './constructs/cognito-user-pool.construct';
+import { cgxCognitoUserPool } from './constructs/cognito-user-pool.construct';
 
-export default ssrCognitoUserPool('TestUserPool', {
+export default cgxCognitoUserPool('TestUserPool', {
     sstResourceName: 'CognitoTestUserPool',
     args: {
         triggers: {

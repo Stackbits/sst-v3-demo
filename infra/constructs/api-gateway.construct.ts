@@ -1,21 +1,21 @@
 import { DEFAULT_FUNCTION_CONFIG } from '../utils/constants/default-function-config.constant';
 import { constructName } from '../utils/construct-name.util';
 
-export type SSRApiGatewayRoute = {
+export type CGXApiGatewayRoute = {
     routePath: string;
     functionName: string;
     functionArgs: Omit<sst.aws.FunctionArgs, 'dev' | 'live' | 'injections' | 'url' | 'name' | 'transform' | 'nodejs'>;
 };
 
-export type SSRApiGatewayV1Props = {
+export type CGXApiGatewayV1Props = {
     sstResourceName: string;
-    routes: SSRApiGatewayRoute[];
+    routes: CGXApiGatewayRoute[];
     args?: Omit<sst.aws.ApiGatewayV1Args, 'transform'>;
     // TODO: add authorizer args and api key args
 };
 
 /**
- * `SSR API Gateway V1 Construct`
+ * `CGX API Gateway V1 Construct`
  *
  * ``This reusable construct creates an AWS REST Api Gateway with a default configuration, which can be overridden.``
  * ```
@@ -36,7 +36,7 @@ export type SSRApiGatewayV1Props = {
  * @param props - This is a set of properties used to configure the AWS Rest Api ApiGatewayV1.
  * @returns An instance of AWS Rest Api Gateway, with configures routes.
  */
-export const ssrApiGatewayV1 = (name: string, props: SSRApiGatewayV1Props): sst.aws.ApiGatewayV1 => {
+export const cgxApiGatewayV1 = (name: string, props: CGXApiGatewayV1Props): sst.aws.ApiGatewayV1 => {
     const { sstResourceName, args, routes } = props;
     const apiGateway: sst.aws.ApiGatewayV1 = new sst.aws.ApiGatewayV1(sstResourceName, {
         ...(args || {}),
