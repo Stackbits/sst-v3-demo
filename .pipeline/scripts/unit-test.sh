@@ -1,12 +1,10 @@
 #!/bin/bash
-echo "Running Unit Tests"
+echo "Running Unit Tests for $APPLICATION"
 
-echo "Environment: $ENVIRONMENT"
-
-ls
-
+# Install dependencies
 npm install
 
+# Run units test with coverage
 npm run test:coverage
 
 exit 0

@@ -1,22 +1,15 @@
 #!/bin/bash
-echo "Deploying Application"
+echo "Deploying $APPLICATION in environment $ENVIRONMENT"
 
-echo "Environment: $ENVIRONMENT"
-
-ls
-
+# Install dependencies
 npm install
 
+# Set stage name
 export SST_STAGE=$ENVIRONMENT
 
-echo "SST Stage = $SST_STAGE"
-
+# Deploy Application
+echo "Starting $ENVIRONMENT deployment"
 npx sst deploy --print-logs
-
-ls -lrt
-
-cd .sst/artifacts
-
-ls -lrt
+echo "Completed $ENVIRONMENT deployment"
 
 exit 0
