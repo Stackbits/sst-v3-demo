@@ -1,13 +1,13 @@
 import { constructName } from '../utils/construct-name.util';
 
-export type SSRCognitoUserPoolProps = {
+export type CGXCognitoUserPoolProps = {
     sstResourceName: string;
     args: Omit<sst.aws.CognitoUserPoolArgs, 'usernames' | 'transform'>;
 };
 
-export const ssrCognitoUserPool = (
+export const cgxCognitoUserPool = (
     name: string,
-    props: SSRCognitoUserPoolProps,
+    props: CGXCognitoUserPoolProps,
 ): sst.aws.CognitoUserPool => {
     const { sstResourceName, args } = props;
     const cognitoUserPool: sst.aws.CognitoUserPool = new sst.aws.CognitoUserPool(

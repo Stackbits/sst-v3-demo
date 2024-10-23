@@ -1,6 +1,6 @@
-import { ssrTable, SSRTableProps } from './constructs/table.construct';
+import { cgxTable, CGXTableProps } from './constructs/table.construct';
 
-const accountsTableProps: SSRTableProps = {
+const accountsTableProps: CGXTableProps = {
     sstResourceName: 'VisionAccountTable',
     args: {
         fields: {
@@ -19,4 +19,4 @@ const accountsTableProps: SSRTableProps = {
     },
 };
 
-export const accountsTable = ssrTable('account', accountsTableProps);
+export const accountsTable = cgxTable('account', accountsTableProps);
