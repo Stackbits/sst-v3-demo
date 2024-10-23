@@ -5,8 +5,8 @@ echo "Environment: $ENVIRONMENT"
 
 ls
 
-# npm install
+npm install
 
-# npm run test:coverage
+npm run test:coverage
 
 exit 0

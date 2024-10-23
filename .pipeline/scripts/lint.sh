@@ -8,8 +8,8 @@ echo "BRANCH_NAME: $BRANCH_NAME"
 
 ls
 
-# npm install
+npm install
 
-# npm run lint
+npm run lint
 
 exit 0
