@@ -2,6 +2,10 @@
 echo "Checking code quality..."
 
 echo "Environment: $ENVIRONMENT"
+echo "BRANCH_NAME: $BRANCH_NAME"
+echo "Pipeline ID: #{codepipeline.PipelineExecutionId}"
+
+
 
 ls
 
