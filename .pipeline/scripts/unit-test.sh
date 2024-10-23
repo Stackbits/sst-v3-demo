@@ -3,7 +3,7 @@ echo "Running Unit Tests"
 
 echo "Environment: $ENVIRONMENT"
 
-echo pipeline id #{codepipeline.PipelineExecutionId}
+echo "pipeline id #{codepipeline.PipelineExecutionId}"
 
 ls
 
